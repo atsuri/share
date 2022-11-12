@@ -8,9 +8,20 @@ use App\Share;
 class SharesController extends Controller
 {
     // 一覧
-    public function index() {
+    public function index(Request $request) {
+        // ユーザー一覧をページネートで取得
         $shares = Share::all();
-        return view('shares.index')->with('shares', $shares);
+        $keyword = $request->input('keyword');
+
+        $query = Share::query();
+
+        if(!empty($keyword)) {
+            $query->where('title', 'LIKE', "%{$keyword}%");
+        }
+
+        $shares = $query->get();
+    
+        return view('shares.index', compact('shares'));
     }
 
     // 一つのshare
