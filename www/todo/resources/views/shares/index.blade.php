@@ -35,10 +35,22 @@
             <input type="text" name="comment" class="form-control" placeholder="comment" style="max-width:1300px;">
           </div>
           <div class="text-right">
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-outline-success">Add</button>
           </div>
         </div>
       </form>
+
+      <br><br>
+      <br><br>
+      <div class=”input-group”>
+        <form action="{{ route('shares.index') }}" method="GET" class="d-flex">
+          <input type="text" name="keyword" value="{{ $keyword ?? '' }}" placeholder="Input the title" class="form-control me-2">
+          <span class="input-group-btn">
+            <input type="submit" value="Search" class="btn btn-outline-success">
+          </span>
+        </form>
+      </div>
+
       <h1 class="mt-5">Share List</h1>
       @if (session('status'))
         <div class="alert alert-success">
@@ -56,6 +68,7 @@
           @endforeach
         </tbody>
       </table>
+
     </div>
   </body>
 </html>
