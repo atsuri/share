@@ -9,7 +9,7 @@ class SharesController extends Controller
 {
     // 一覧
     public function index(Request $request) {
-        // ユーザー一覧をページネートで取得
+        // ユーザー一覧を取得
         $shares = Share::all();
         $keyword = $request->input('keyword');
 

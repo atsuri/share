@@ -57,17 +57,21 @@
           {{ session('status') }}
         </div>
       @endif
-      <table class="table table-striped mt-2">
-        <tbody>
-          @foreach ($shares as $share)
-          <tr>
-            <td>
-              <a href="/shares/{{$share->id}}">{{$share->title}}</a>
-            </td>
-          <tr>
-          @endforeach
-        </tbody>
-      </table>
+      @if (count($shares) > 0)
+        <table class="table table-striped mt-2">
+            <tbody>
+            @foreach ($shares as $share)
+            <tr>
+                <td>
+                <a href="/shares/{{$share->id}}">{{$share->title}}</a>
+                </td>
+            <tr>
+            @endforeach
+            </tbody>
+        </table>
+      @else
+        <p>No share</p>
+      @endif
 
     </div>
   </body>

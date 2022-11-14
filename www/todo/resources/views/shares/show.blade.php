@@ -36,12 +36,12 @@
                     <form action="{{ action('SharesController@edit', $share) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('get') }}
-                        <button type="submit" class="btn btn-primary center-block">Edit</button>
+                        <button type="submit" class="btn btn-outline-success center-block">Edit</button>
                     </form>
                     <form action="{{url('/shares', $share->id)}}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('delete') }}
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
                     </form>
                 </div>
             </div>
